@@ -31,7 +31,7 @@ class Dog
       self.update
     else
     sql = <<-SQL
-      INSERT INTO dogs (name, album)
+      INSERT INTO dogs (name, breed)
       VALUES (?, ?)
     SQL
     DB[:conn].execute(sql, self.name, self.breed)
@@ -40,7 +40,7 @@ class Dog
   end
 
   def update
-    sql = "UPDATE dogs SET name = ?, album = ? WHERE id = ?"
+    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
 
